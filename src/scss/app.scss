@@ -103,11 +103,12 @@ aside {
             margin: 10px 20px;
         }
         .fast-view {
+            display: none;
             position: absolute;
             border-radius: 20px;
             background-color: white;
             color: black;
-            padding: 5px 10px;
+            padding: 10px 20px;
             left: 50%;
             top: 50%;
             transform:translate(-50%, -50%);
@@ -128,6 +129,9 @@ aside {
     }
     .card-item:hover {
         box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+    }
+    .card-item:hover .fast-view {
+        display: block;
     }
 }
 
