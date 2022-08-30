@@ -1,0 +1,33 @@
+$bgcolor: rgb(248, 248, 248);
+$headcolor: #faea68;
+$footcolor: black;
+$footfontcolor: white;
+
+.main-wrapper {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.wrapper {
+    @extend .main-wrapper;
+    background-color: $bgcolor;
+    height: 100vh;
+}
+
+.header-wrapper, .footer-wrapper{
+    @extend .main-wrapper;
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    background-color: $headcolor;
+}
+
+footer {
+    width: 100%;
+    height: 30px;
+    background-color: $footcolor;
+    color: $footfontcolor;
+}

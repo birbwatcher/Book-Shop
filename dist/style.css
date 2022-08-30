@@ -1,2 +1,2 @@
-.wrapper{background-color:#f8f8f8;margin:0 auto;width:1200px;height:100vh}.header-wrapper{margin:0 auto;width:1200px;height:100%}header{width:100%;height:100px;background-color:#faea68}
+.main-wrapper,.wrapper,.header-wrapper,.footer-wrapper{margin:0 auto;width:1200px}.wrapper{background-color:#f8f8f8;height:100vh}.header-wrapper,.footer-wrapper{height:100%}header{width:100%;height:100px;background-color:#faea68}footer{width:100%;height:30px;background-color:#000;color:#fff}
 
