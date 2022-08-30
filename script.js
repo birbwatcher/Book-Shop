@@ -13,8 +13,6 @@ let logo = document.createElement("div");
 logo.classList.add('logo');
 let cardContainer = document.createElement("div");
 cardContainer.classList.add('cards-container');
-let cart = document.createElement("div");
-cart.classList.add('cart');
 
 loadedPage.append(header);
 header.append(headerWrapper);
@@ -26,14 +24,43 @@ footer.append(footerWrapper);
 document.body.append(loadedPage);
 headerWrapper.append(logo)
 main.append(cardContainer);
-sidebar.append(cart)
 
-function createCard() {
+function createCard(x) {
     for (i=0;i<books.length;i++) {
         let card = document.createElement("div");
-        card.classList.add('card-item');
+        card.classList.add("card-item");
+        card.id = i+1;
         cardContainer.append(card);
+        let image = document.createElement("img");
+        image.src = books[i].imageLink;
+        card.append(image);
+        let title = document.createElement("h3");
+        title.innerHTML = books[i].title
+        card.append(title)
+        let author = document.createElement("b");
+        author.innerHTML = books[i].author;
+        card.append(author)
+        let bar = document.createElement("div");
+        bar.classList.add("bar");
+        card.append(bar)
+        let price = document.createElement("span")
+        price.classList.add("price")
+        bar.append(price)
+        price.innerHTML = '$' + books[i].price;
+        let addToCard = document.createElement("button");
+        addToCard.innerHTML = "Add to Cart"
+        bar.append(addToCard);
+        let fastView = document.createElement("button");
+        fastView.innerHTML = "Fast View";
+        fastView.classList.add("fast-view");
+        card.append(fastView);
     }
+}
+
+function createCart() {
+    let cart = document.createElement("div");
+    cart.classList.add('cart');
+    sidebar.append(cart)
 }
 
 let books;
@@ -46,9 +73,10 @@ async function getBooks() {
 
 async function shopInit() {
     await getBooks();
-    for (i=0;i<books.length;i++) {
+    // for (i=0;i<books.length;i++) {
+    //     console.log(i)
         createCard();
-    }
+    // }
+    createCart()
 }
 shopInit();
-
