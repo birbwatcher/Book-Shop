@@ -9,8 +9,13 @@ let headerWrapper = document.createElement("div");
 headerWrapper.classList.add('header-wrapper')
 let footerWrapper = document.createElement("div");
 footerWrapper.classList.add('footer-wrapper')
-let logo = document.createElement("div");
+let logo = document.createElement("a");
 logo.classList.add('logo');
+logo.href = "index.html";
+let logoImg = document.createElement("img");
+logoImg.src = "./assets/logo.png";
+logoImg.alt = "JS Book Store"
+logo.append(logoImg)
 let cardContainer = document.createElement("div");
 cardContainer.classList.add('cards-container');
 

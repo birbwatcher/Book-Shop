@@ -2,6 +2,7 @@ $bgcolor: rgb(248, 248, 248);
 $headcolor: #faea68;
 $footcolor: black;
 $footfontcolor: white;
+$cart-backg-color: rgb(247, 247, 247);
 
 body {
     font-family: 'Helvetica Neue',Helvetica,'Lucida Grande','Droid Sans',Tahoma,'Microsoft Sans Serif',sans-serif;
@@ -34,10 +35,10 @@ header {
     height: 100px;
     background-color: $headcolor;
     .logo {
-        width: 50px;
-        height: 50px;
-        background-color: red;
         margin-left: 20px;
+        img {
+            height: 60px;
+        }
     }
 }
 
@@ -61,9 +62,11 @@ aside {
     height: 100%;
     padding-top: 20px;
     .cart {
-        background-color:cadetblue;
+        position: fixed;
+        background-color: $cart-backg-color;
         width: 300px;
         height: 400px;
+        border-radius: 20px;
     }
 }
 
@@ -106,7 +109,7 @@ aside {
             display: none;
             position: absolute;
             border-radius: 20px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.674);
             color: black;
             padding: 10px 20px;
             left: 50%;
