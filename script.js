@@ -13,7 +13,7 @@ footerWrapper.classList.add('footer-wrapper')
 loadedPage.append(header);
 header.append(headerWrapper);
 wrapper.append(main);
-main.append(sidebar);
+wrapper.append(sidebar);
 loadedPage.append(wrapper);
 loadedPage.append(footer);
 footer.append(footerWrapper);

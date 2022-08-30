@@ -12,6 +12,7 @@ $footfontcolor: white;
     @extend .main-wrapper;
     background-color: $bgcolor;
     height: 100vh;
+    display: flex;
 }
 
 .header-wrapper, .footer-wrapper{
@@ -30,4 +31,15 @@ footer {
     height: 30px;
     background-color: $footcolor;
     color: $footfontcolor;
+}
+
+main {
+    display: flex;
+    width: 70%;
+    height: 100%;
+}
+
+aside {
+    width: 30%;
+    height: 100%;
 }
