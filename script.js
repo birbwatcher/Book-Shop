@@ -1,71 +1,81 @@
 let loadedPage = document.createDocumentFragment();
-let header = document.createElement("header")
+// let header = document.createElement("header");
 let main = document.createElement("main");
-let sidebar = document.createElement("aside");
 let footer = document.createElement("footer");
-let wrapper = document.createElement("div");
-wrapper.classList.add('wrapper')
-let headerWrapper = document.createElement("div");
-headerWrapper.classList.add('header-wrapper')
-let footerWrapper = document.createElement("div");
-footerWrapper.classList.add('footer-wrapper')
-let logo = document.createElement("a");
-logo.classList.add('logo');
-logo.href = "index.html";
-let logoImg = document.createElement("img");
-logoImg.src = "./assets/logo.png";
-logoImg.alt = "JS Book Store"
-logo.append(logoImg)
-let cardContainer = document.createElement("div");
-cardContainer.classList.add('cards-container');
+let wrapper = createElement("div","wrapper")
+let headerWrapper = createElement("div","header-wrapper")
+let footerWrapper = createElement("div","footer-wrapper")
 
-loadedPage.append(header);
-header.append(headerWrapper);
+
+let cardContainer = createElement("div","cards-container")
+
+loadedPage.append(createHeader());
 wrapper.append(main);
-wrapper.append(sidebar);
+wrapper.append(createSidebar());
 loadedPage.append(wrapper);
 loadedPage.append(footer);
 footer.append(footerWrapper);
 document.body.append(loadedPage);
-headerWrapper.append(logo)
 main.append(cardContainer);
+
+function createElement(element, elementClass) {
+    let newElement = document.createElement(element);
+    newElement.classList.add(elementClass);
+    return newElement;
+}
+
+function createHeader() {
+    let header = document.createElement("header");
+    let headerWrapper = createElement("div","header-wrapper")
+    header.append(headerWrapper);
+    let logo = createElement("a","logo");
+    logo.href = "index.html";
+    let logoImg = document.createElement("img");
+    logoImg.src = "./assets/logo.png";
+    logoImg.alt = "JS Book Store"
+    logo.append(logoImg)
+    headerWrapper.append(logo)
+    return header
+}
+
+function createSidebar() {
+    let sidebar = document.createElement("aside");
+    let cart = createElement("div","cart")
+    sidebar.append(cart);
+    return sidebar;
+}
 
 function createCard(x) {
     for (i=0;i<books.length;i++) {
-        let card = document.createElement("div");
-        card.classList.add("card-item");
-        card.id = i+1;
-        cardContainer.append(card);
+        let card = createElement("div", "card-item");
+         card.id = i+1;
+         cardContainer.append(card);
         let image = document.createElement("img");
-        image.src = books[i].imageLink;
-        card.append(image);
+         image.src = books[i].imageLink;
+         card.append(image);
         let title = document.createElement("h3");
-        title.innerHTML = books[i].title
-        card.append(title)
+         title.innerHTML = books[i].title
+         card.append(title)
         let author = document.createElement("b");
-        author.innerHTML = books[i].author;
-        card.append(author)
-        let bar = document.createElement("div");
-        bar.classList.add("bar");
-        card.append(bar)
-        let price = document.createElement("span")
-        price.classList.add("price")
-        bar.append(price)
-        price.innerHTML = '$' + books[i].price;
+         author.innerHTML = books[i].author;
+         card.append(author)
+        let bar = createElement("div","bar")
+         card.append(bar)
+        let price = createElement("span","price");
+         bar.append(price)
+         price.innerHTML = '$' + books[i].price;
         let addToCard = document.createElement("button");
-        addToCard.innerHTML = "Add to Cart"
-        bar.append(addToCard);
-        let fastView = document.createElement("button");
-        fastView.innerHTML = "Fast View";
-        fastView.classList.add("fast-view");
-        card.append(fastView);
+         addToCard.innerHTML = "Add to Cart"
+         bar.append(addToCard);
+        let fastView = createElement("button","fast-view")
+         fastView.innerHTML = "Fast View";
+         card.append(fastView);
     }
 }
 
 function createCart() {
-    let cart = document.createElement("div");
-    cart.classList.add('cart');
-    sidebar.append(cart)
+    let cart = createElement("div","cart")
+    sidebar.append(cart);
 }
 
 let books;
@@ -78,10 +88,7 @@ async function getBooks() {
 
 async function shopInit() {
     await getBooks();
-    // for (i=0;i<books.length;i++) {
-    //     console.log(i)
-        createCard();
-    // }
-    createCart()
+    createCard();
+    // createCart();
 }
 shopInit();
