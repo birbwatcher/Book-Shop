@@ -7,34 +7,8 @@ import createElement from "./scripts/createElement.js";
 import createHeader from "./scripts/createHeader.js";
 import createMain from "./scripts/createMain.js";
 import createFooter from "./scripts/createFooter.js";
+import createCard from "./scripts/createCard.js";
 
-function createCard(x) {
-    for (let i=0;i<books.length;i++) {
-        let card = createElement("div", "card-item");
-         card.id = i+1;
-         cardContainer.append(card);
-        let image = document.createElement("img");
-         image.src = books[i].imageLink;
-         card.append(image);
-        let title = document.createElement("h3");
-         title.innerHTML = books[i].title
-         card.append(title)
-        let author = document.createElement("b");
-         author.innerHTML = books[i].author;
-         card.append(author)
-        let bar = createElement("div","bar")
-         card.append(bar)
-        let price = createElement("span","price");
-         bar.append(price)
-         price.innerHTML = '$' + books[i].price;
-        let addToCard = document.createElement("button");
-         addToCard.innerHTML = "Add to Cart"
-         bar.append(addToCard);
-        let fastView = createElement("button","fast-view")
-         fastView.innerHTML = "Fast View";
-         card.append(fastView);
-    }
-}
 
 // function createCart() {
 //     let cart = createElement("div","cart")
@@ -100,3 +74,4 @@ shopInit();
 export {loadedPage};
 export {wrapper};
 export {cardContainer};
+export {books};
