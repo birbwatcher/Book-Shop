@@ -33,6 +33,3 @@ export default function popUp() {
     bar.append(addToCard);
 }
 
-export function getPopUp() {
-    console.log('meow')
-}
