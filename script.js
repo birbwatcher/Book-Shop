@@ -1,13 +1,16 @@
+import createElement from "./scripts/createElement.js";
+let books;
+
 let loadedPage = document.createDocumentFragment();
 let wrapper = createElement("div","wrapper")
 let cardContainer = createElement("div","cards-container")
 
 
-function createElement(element, elementClass) {
-    let newElement = document.createElement(element);
-    newElement.classList.add(elementClass);
-    return newElement;
-}
+// function createElement(element, elementClass) {
+//     let newElement = document.createElement(element);
+//     newElement.classList.add(elementClass);
+//     return newElement;
+// }
 
 function createHeader() {
     let header = document.createElement("header");
@@ -64,7 +67,7 @@ function createFooter() {
 }
 
 function createCard(x) {
-    for (i=0;i<books.length;i++) {
+    for (let i=0;i<books.length;i++) {
         let card = createElement("div", "card-item");
          card.id = i+1;
          cardContainer.append(card);
@@ -129,8 +132,6 @@ function popUp() {
     addToCard.innerHTML = "Add to Cart";
     close.src = "./assets/modal-close-button.png";
     bar.append(addToCard);
-
-
 }
 
 async function getBooks() {
@@ -152,6 +153,6 @@ async function shopInit() {
 }
 
 shopInit();
-popUp();
+// popUp();
 
 

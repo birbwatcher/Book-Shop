@@ -129,6 +129,9 @@ aside {
             margin-top: 10px;
             margin-bottom: 10px;
         }
+        img:hover {
+            cursor:grab;
+        }
         .fast-view {
             display: none;
             position: absolute;
