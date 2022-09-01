@@ -1,10 +1,10 @@
-import createElement from "./scripts/createElement.js";
-let books;
-
 let loadedPage = document.createDocumentFragment();
 let wrapper = createElement("div","wrapper")
 let cardContainer = createElement("div","cards-container")
+let books;
 
+import createElement from "./scripts/createElement.js";
+import createHeader from "./scripts/createHeader.js";
 
 // function createElement(element, elementClass) {
 //     let newElement = document.createElement(element);
@@ -12,19 +12,6 @@ let cardContainer = createElement("div","cards-container")
 //     return newElement;
 // }
 
-function createHeader() {
-    let header = document.createElement("header");
-    let headerWrapper = createElement("div","header-wrapper")
-    header.append(headerWrapper);
-    let logo = createElement("a","logo");
-    logo.href = "index.html";
-    let logoImg = document.createElement("img");
-    logoImg.src = "./assets/logo.png";
-    logoImg.alt = "JS Book Store"
-    logo.append(logoImg)
-    headerWrapper.append(logo)
-    loadedPage.append(header);
-}
 
 function createMain() {
     let main = document.createElement("main");
@@ -155,4 +142,5 @@ async function shopInit() {
 shopInit();
 // popUp();
 
+export {loadedPage};
 
