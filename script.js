@@ -6,21 +6,7 @@ let books;
 import createElement from "./scripts/createElement.js";
 import createHeader from "./scripts/createHeader.js";
 import createMain from "./scripts/createMain.js";
-import createCartContainer from "./scripts/createCartContainer.js";
-// function createElement(element, elementClass) {
-//     let newElement = document.createElement(element);
-//     newElement.classList.add(elementClass);
-//     return newElement;
-// }
-
-
-function createFooter() {
-    let footer = document.createElement("footer");
-    let footerWrapper = createElement("div","footer-wrapper");
-
-    footer.append(footerWrapper);
-    return footer;
-}
+import createFooter from "./scripts/createFooter.js";
 
 function createCard(x) {
     for (let i=0;i<books.length;i++) {
