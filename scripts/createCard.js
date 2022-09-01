@@ -24,6 +24,7 @@ export default function createCard(x) {
          bar.append(price)
          price.innerHTML = '$' + books[i].price;
         let addToCard = document.createElement("button");
+        addToCard.setAttribute('data', i);
          addToCard.innerHTML = "Add to Cart"
          bar.append(addToCard);
         let fastView = createElement("button","fast-view")

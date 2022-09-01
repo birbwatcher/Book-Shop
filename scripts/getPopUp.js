@@ -23,4 +23,5 @@ export default function getPopUp(bookId) {
     document.querySelector('.price').innerHTML = '$' + books[bookId].price;
     document.querySelector('.book-author').innerHTML = books[bookId].author;
     document.querySelector('.book-title').innerHTML = books[bookId].title;
+    document.querySelector('.bar button').setAttribute('data', bookId);
 }
