@@ -8,4 +8,5 @@ export default function createMain() {
     wrapper.append(main);
     main.append(cardContainer);
     createSidebar();
+
 }

@@ -7,7 +7,7 @@ import getPopUp from "./getPopUp.js"
 export default function createCard(x) {
     for (let i=0;i<books.length;i++) {
         let card = createElement("div", "card-item");
-         card.id = i+1;
+         card.id = i;
          cardContainer.append(card);
         let image = document.createElement("img");
          image.src = books[i].imageLink;
@@ -31,8 +31,11 @@ export default function createCard(x) {
          card.append(fastView);
 
          fastView.onclick = function () {
-            getPopUp();
+            getPopUp(this.parentNode.id);
         }
-    }
 
+        // card.onclick = function() {
+        //     console.log(this.id);
+        // }
+    }
 }
