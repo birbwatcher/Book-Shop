@@ -8,7 +8,7 @@ import createHeader from "./scripts/createHeader.js";
 import createMain from "./scripts/createMain.js";
 import createFooter from "./scripts/createFooter.js";
 import createCard from "./scripts/createCard.js";
-import popUp from "./scripts/popUp.js";
+import createPopUp from "./scripts/createPopUp.js";
 
 async function getBooks() {
     let result = await fetch("./books.json");
@@ -22,6 +22,7 @@ async function shopInit() {
     await getBooks();
     createCard();
     createFooter();
+    createPopUp();
 
     loadedPage.append(wrapper);
     loadedPage.append(createFooter());
@@ -29,7 +30,6 @@ async function shopInit() {
 }
 
 shopInit();
-// popUp();
 
 export {loadedPage};
 export {wrapper};

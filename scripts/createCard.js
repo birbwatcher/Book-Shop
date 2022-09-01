@@ -1,6 +1,8 @@
 import createElement from "./createElement.js";
 import {books} from "../script.js";
 import {cardContainer} from "../script.js";
+import createPopUp from "./createPopUp.js";
+import getPopUp from "./getPopUp.js"
 
 export default function createCard(x) {
     for (let i=0;i<books.length;i++) {
@@ -27,5 +29,10 @@ export default function createCard(x) {
         let fastView = createElement("button","fast-view")
          fastView.innerHTML = "Fast View";
          card.append(fastView);
+
+         fastView.onclick = function () {
+            getPopUp();
+        }
     }
+
 }

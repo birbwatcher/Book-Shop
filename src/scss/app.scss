@@ -178,6 +178,7 @@ button:hover{
 }
 
 .blackout {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -189,7 +190,7 @@ button:hover{
 }
 
 .popup {
-    display: flex;
+    display: none;
     position: fixed;
     align-items: center;
     top: 50%;
@@ -214,5 +215,9 @@ button:hover{
     .close:hover {
         scale: 110%;
     }
+}
+
+.active {
+    display: flex;
 }
 

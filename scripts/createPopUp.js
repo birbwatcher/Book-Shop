@@ -32,3 +32,7 @@ export default function popUp() {
     close.src = "./assets/modal-close-button.png";
     bar.append(addToCard);
 }
+
+export function getPopUp() {
+    console.log('meow')
+}
