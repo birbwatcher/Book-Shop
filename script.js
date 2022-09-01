@@ -109,7 +109,7 @@ function popUp() {
     let price = createElement("span","price");
     let description = createElement("p","description");
     let bar = createElement("div","bar");
-    let close = createElement("div","close");
+    let close = createElement("img","close");
     loadedPage.append(blackout);
     loadedPage.append(popup);
     popup.append(image);
@@ -127,7 +127,7 @@ function popUp() {
     price.innerHTML = "Price: $30";
     let addToCard = document.createElement("button");
     addToCard.innerHTML = "Add to Cart";
-    close.innerHTML = "X"
+    close.src = "./assets/modal-close-button.png";
     bar.append(addToCard);
 
 
