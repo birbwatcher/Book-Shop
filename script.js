@@ -5,45 +5,14 @@ let books;
 
 import createElement from "./scripts/createElement.js";
 import createHeader from "./scripts/createHeader.js";
-
+import createMain from "./scripts/createMain.js";
+import createCartContainer from "./scripts/createCartContainer.js";
 // function createElement(element, elementClass) {
 //     let newElement = document.createElement(element);
 //     newElement.classList.add(elementClass);
 //     return newElement;
 // }
 
-
-function createMain() {
-    let main = document.createElement("main");
-    wrapper.append(main);
-    main.append(cardContainer);
-    createSidebar();
-}
-
-function createSidebar() {
-    let sidebar = document.createElement("aside");
-    let cart = createElement("div","cart")
-    let yourCart = createElement("b", "your-cart");
-    let total = createElement("b", "total")
-    sidebar.append(cart);
-    yourCart.innerHTML = "Your cart:";
-    total.innerHTML = "Total:"
-    cart.append(yourCart);
-    cart.append(createCartContainer());
-    cart.append(total);
-    wrapper.append(sidebar)
-}
-
-function createCartContainer() {
-    let cartContainer = createElement("div","cart-container");
-    let dragImage = createElement("img","drag-image");
-    let title = document.createElement("b");
-    title.innerHTML = "Your cart is empty. Just drag and drop the book here";
-    dragImage.src = "./assets/dragndrop.png";
-    cartContainer.append(dragImage);
-    cartContainer.append(title);
-    return cartContainer;
-}
 
 function createFooter() {
     let footer = document.createElement("footer");
@@ -143,4 +112,5 @@ shopInit();
 // popUp();
 
 export {loadedPage};
-
+export {wrapper};
+export {cardContainer};
