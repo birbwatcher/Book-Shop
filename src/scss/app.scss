@@ -69,25 +69,26 @@ aside {
         position: fixed;
         background-color: $cart-backg-color;
         width: 300px;
-        height: 400px;
+        height: 500px;
         border-radius: 20px;
         .your-cart {
             text-align: center;
         }
         .your-cart {
             margin-top: 20px;
+            margin-bottom: 15px;
         }
         .total {
-            margin: 0 0px 20px 20px;
+            margin: 20px 0px 20px 20px;
         }
         .cart-container {
             height: 100%;
             display: flex;
+            overflow: scroll;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             margin: 0 20px;
-            opacity: 0.3;
         }
         .cart-container:hover {
             opacity: 1;
@@ -95,7 +96,46 @@ aside {
             .drag-image {
                 width: 50px;
                 height: 50px;
+                opacity: 0.3;
             }
+            .empty-cart-title{
+                opacity: 0.3;
+            }
+        .cart-book {
+            display: flex;
+            width: 100%;
+            margin: 10px 0;
+        }
+            .cart-book-image {
+                width: 70px;
+            }
+            .cart-book-title {
+                font-size: 13px;
+            }
+            .cart-book-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+            }   
+                .cart-count-bar {
+                    display: flex;
+                    justify-content: space-evenly;
+                }
+                .cart-book-minus, .cart-book-plus {
+                    width: 40px;
+                    height: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    color: white;
+                    background-color: grey;
+                }
+                    .cart-count-bar p{
+                        margin: 0;
+                        padding: 0;
+                        font-size: 13px;
+                    }
     }
 }
 

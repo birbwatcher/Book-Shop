@@ -3,6 +3,7 @@ import {books} from "../script.js";
 import {cardContainer} from "../script.js";
 import createPopUp from "./createPopUp.js";
 import getPopUp from "./getPopUp.js"
+import addToCart from "./cart.js";
 
 export default function createCard(x) {
     for (let i=0;i<books.length;i++) {
@@ -23,16 +24,24 @@ export default function createCard(x) {
         let price = createElement("span","price");
          bar.append(price)
          price.innerHTML = '$' + books[i].price;
-        let addToCard = document.createElement("button");
-        addToCard.setAttribute('data', i);
-         addToCard.innerHTML = "Add to Cart"
-         bar.append(addToCard);
+        let addToCartBtn = document.createElement("button");
+        let addedButton = createElement("button", "added");
+        addToCartBtn.setAttribute('data', i);
+        addToCartBtn.innerHTML = "Add to Cart";
+        addedButton.innerHTML = "Added";
+         bar.append(addToCartBtn);
         let fastView = createElement("button","fast-view")
          fastView.innerHTML = "Fast View";
          card.append(fastView);
 
          fastView.onclick = function () {
             getPopUp(this.parentNode.id);
+        }
+
+        addToCartBtn.onclick = function (event) {
+            addToCart(event.target.getAttribute('data'));
+            bar.append(addedButton);
+            addToCartBtn.remove();
         }
 
         // card.onclick = function() {
