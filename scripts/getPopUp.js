@@ -1,4 +1,5 @@
 import {books} from "../script.js";
+import {cart} from "../scripts/cart.js";
 import addToCart from "./cart.js";
 
 export default function getPopUp(bookId) {
@@ -26,10 +27,20 @@ export default function getPopUp(bookId) {
     document.querySelector('.book-title').innerHTML = books[bookId].title;
     document.querySelector('.bar button').setAttribute('data', bookId);
 
+    if (Object.keys(cart).includes(bookId)) {
+        document.querySelector('.popup .bar button').classList.add('added-to-cart');
+        document.querySelector('.popup .added').classList.remove('added-to-cart');
+    } else {
+        document.querySelector('.popup .bar button').classList.remove('added-to-cart')
+        document.querySelector('.popup .added').classList.add('added-to-cart');
+    }
+
     document.querySelector('.bar button').onclick = function (event) {
         addToCart(event.target.getAttribute('data'));
-        document.querySelector('.bar button').remove();
-        let addedButton = createElement("button", "added");
+        document.querySelector('.popup .bar button').classList.add('added-to-cart');
+        document.querySelector('.popup .added').classList.remove('added-to-cart');
+        document.querySelectorAll('.add-to-cart')[bookId].classList.add('added-to-cart');
+        document.querySelectorAll('.card-item .added')[bookId].classList.remove('added-to-cart');
     }
 
 

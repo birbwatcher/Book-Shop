@@ -26,5 +26,10 @@ export default function popUp() {
     addToCart.innerHTML = "Add to Cart";
     close.src = "./assets/modal-close-button.png";
     bar.append(addToCart);
+
+    let addedButton = createElement("button", "added");
+    addedButton.innerHTML = "Added";
+    addedButton.classList.add('added-to-cart');
+    bar.append(addedButton);
 }
 

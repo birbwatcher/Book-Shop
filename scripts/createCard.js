@@ -28,6 +28,7 @@ export default function createCard(x) {
         let addedButton = createElement("button", "added");
         addToCartBtn.setAttribute('data', i);
         addToCartBtn.innerHTML = "Add to Cart";
+        addToCartBtn.classList.add('add-to-cart')
         addedButton.innerHTML = "Added";
          bar.append(addToCartBtn);
          bar.append(addedButton);
