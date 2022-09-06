@@ -9,7 +9,7 @@ export default function createSidebar() {
     let total = createElement("b", "total")
     sidebar.append(cart);
     yourCart.innerHTML = "Your cart:";
-    total.innerHTML = "Total:"
+    total.innerHTML = "Total: $0"
     cart.append(yourCart);
     cart.append(createCartContainer());
     cart.append(total);

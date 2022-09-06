@@ -58,6 +58,7 @@ function renderCart() {
             renderCart();
         }
     }
+    document.querySelector('.total').innerHTML = 'Total: $' + getTotalPrice();
 }
 
 function bookPlus(bookId) {
@@ -82,5 +83,15 @@ function bookMinus(bookId) {
         }
     }
 }
+
+function getTotalPrice(){
+    let sum = 0;
+    for (let i = 0;i<cart.length;i++) {
+        sum = sum + books[Object.keys(cart[i])].price * cart[i][Object.keys(cart[i])];
+    }
+    return sum;
+}
+
+
 
 export {cart};
