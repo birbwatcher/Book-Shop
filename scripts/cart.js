@@ -59,6 +59,13 @@ function renderCart() {
         }
     }
     document.querySelector('.total').innerHTML = 'Total: $' + getTotalPrice();
+    if (getTotalPrice() > 0) {
+        document.querySelector('.checkout-button-inactive').classList.add('added-to-cart');
+        document.querySelector('.checkout-button').classList.remove('added-to-cart');
+    } else {
+        document.querySelector('.checkout-button-inactive').classList.remove('added-to-cart');
+        document.querySelector('.checkout-button').classList.add('added-to-cart');
+    }
 }
 
 function bookPlus(bookId) {

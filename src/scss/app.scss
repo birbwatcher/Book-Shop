@@ -224,7 +224,7 @@ button:hover{
     display: none;
 }
 
-.added {
+.added, .checkout-button-inactive {
     background-color: rgb(206, 206, 206);
     &:hover {
         background-color: rgb(206, 206, 206); 
