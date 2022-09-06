@@ -48,14 +48,12 @@ function renderCart() {
     let minuses= document.querySelectorAll('.cart-book-minus');
     for (let i=0;i<pluses.length;i++) {
         pluses[i].onclick = function() {
-            console.log(cart);
             bookPlus(event.target.getAttribute('data'))
             renderCart();
         }
     }
     for (let i=0;i<minuses.length;i++) {
         minuses[i].onclick = function() {
-            console.log(cart);
             bookMinus(event.target.getAttribute('data'))
             renderCart();
         }

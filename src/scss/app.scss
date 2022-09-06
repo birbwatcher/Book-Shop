@@ -224,6 +224,13 @@ button:hover{
     display: none;
 }
 
+.added {
+    background-color: rgb(206, 206, 206);
+    &:hover {
+        background-color: rgb(206, 206, 206); 
+    }
+}
+
 .blackout {
     display: none;
     position: fixed;
