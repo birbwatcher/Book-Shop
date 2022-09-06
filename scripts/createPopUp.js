@@ -22,7 +22,7 @@ export default function popUp() {
     content.append(description);
     content.append(bar);
     bar.append(price);
-    let addToCart = document.createElement("button");
+    let addToCart = createElement("button","add-to-cart");
     addToCart.innerHTML = "Add to Cart";
     close.src = "./assets/modal-close-button.png";
     bar.append(addToCart);
