@@ -5,6 +5,8 @@ $footfontcolor: white;
 $cart-backg-color: rgb(247, 247, 247);
 $btn-hover: rgb(251, 209, 131);
 
+// split to files
+
 body {
     font-family: 'Helvetica Neue',Helvetica,'Lucida Grande','Droid Sans',Tahoma,'Microsoft Sans Serif',sans-serif;
 }
@@ -83,8 +85,8 @@ aside {
         }
         .cart-container {
             height: 100%;
-            display: flex;
             overflow: scroll;
+            overflow-x: hidden;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -160,6 +162,10 @@ aside {
         img {
             height: 300px;
             width: 100%;
+
+            &:hover {
+                cursor:grab;
+            }
         }
         b {
             color: grey;
@@ -168,9 +174,6 @@ aside {
             font-size: 16px;
             margin-top: 10px;
             margin-bottom: 10px;
-        }
-        img:hover {
-            cursor:grab;
         }
         .fast-view {
             display: none;
@@ -214,7 +217,11 @@ button {
     padding: 5px 10px;
 }
 button:hover{
-    background-color: $btn-hover;
+    background-color:$btn-hover;
+}
+
+.added-to-cart{
+    display: none;
 }
 
 .blackout {

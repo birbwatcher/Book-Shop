@@ -30,6 +30,8 @@ export default function createCard(x) {
         addToCartBtn.innerHTML = "Add to Cart";
         addedButton.innerHTML = "Added";
          bar.append(addToCartBtn);
+         bar.append(addedButton);
+         addedButton.classList.add('added-to-cart');
         let fastView = createElement("button","fast-view")
          fastView.innerHTML = "Fast View";
          card.append(fastView);
@@ -40,8 +42,8 @@ export default function createCard(x) {
 
         addToCartBtn.onclick = function (event) {
             addToCart(event.target.getAttribute('data'));
-            bar.append(addedButton);
-            addToCartBtn.remove();
+            addedButton.classList.remove('added-to-cart');
+            addToCartBtn.classList.add('added-to-cart');
         }
 
         // card.onclick = function() {
