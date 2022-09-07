@@ -28,21 +28,21 @@ export default function getPopUp(bookId) {
     document.querySelector('.book-title').innerHTML = books[bookId].title;
     document.querySelector('.bar button').setAttribute('data', bookId);
     
-    document.querySelector('.add-to-cart').onclick = function (event) {
+    document.querySelector('.add-to-cart-popup').onclick = function (event) {
         addToCart(event.target.getAttribute('data'));
-        document.querySelector('.popup-content .add-to-cart').classList.add('added-to-cart');
-        document.querySelector('.popup-content .added').classList.remove('added-to-cart');
+        document.querySelector('.popup-content .add-to-cart-popup').classList.add('added-to-cart');
+        document.querySelector('.popup-content .added-popup').classList.remove('added-to-cart');
 
         document.querySelectorAll('.card-item .add-to-cart')[bookId].classList.add('added-to-cart');
         document.querySelectorAll('.card-item .added')[bookId].classList.remove('added-to-cart');
     }
 
     if (alreadyInCart(bookId)) {
-        document.querySelector('.popup-content .add-to-cart').classList.add('added-to-cart');
-        document.querySelector('.popup-content .added').classList.remove('added-to-cart');
+        document.querySelector('.popup-content .add-to-cart-popup').classList.add('added-to-cart');
+        document.querySelector('.popup-content .added-popup').classList.remove('added-to-cart');
     } else {
-        document.querySelector('.popup-content .add-to-cart').classList.remove('added-to-cart');
-        document.querySelector('.popup-content .added').classList.add('added-to-cart');
+        document.querySelector('.popup-content .add-to-cart-popup').classList.remove('added-to-cart');
+        document.querySelector('.popup-content .added-popup').classList.add('added-to-cart');
     }
 
 }

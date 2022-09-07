@@ -7,6 +7,8 @@ export default function addToCart(bookData) {
         let book = {};
         book[bookData] = 1;
         cart.push(book);
+        document.querySelectorAll('.add-to-cart')[bookData].classList.add('added-to-cart');
+        document.querySelectorAll('.added')[bookData].classList.remove('added-to-cart');
     } else {
         bookPlus(bookData);
     }

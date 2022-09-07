@@ -22,12 +22,12 @@ export default function popUp() {
     content.append(description);
     content.append(bar);
     bar.append(price);
-    let addToCart = createElement("button","add-to-cart");
+    let addToCart = createElement("button","add-to-cart-popup");
     addToCart.innerHTML = "Add to Cart";
     close.src = "./assets/modal-close-button.png";
     bar.append(addToCart);
 
-    let addedButton = createElement("button", "added");
+    let addedButton = createElement("button", "added-popup");
     addedButton.innerHTML = "Added";
     addedButton.classList.add('added-to-cart');
     bar.append(addedButton);

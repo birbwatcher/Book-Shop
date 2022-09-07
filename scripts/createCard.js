@@ -1,6 +1,5 @@
 import createElement from "./createElement.js";
 import {books, cardContainer} from "../script.js";
-import createPopUp from "./createPopUp.js";
 import getPopUp from "./getPopUp.js"
 import addToCart from "./cart.js";
 
@@ -42,8 +41,8 @@ export default function createCard(x) {
 
         addToCartBtn.onclick = function (event) {
             addToCart(event.target.getAttribute('data'));
-            addedButton.classList.remove('added-to-cart');
-            addToCartBtn.classList.add('added-to-cart');
+            // addedButton.classList.remove('added-to-cart');
+            // addToCartBtn.classList.add('added-to-cart');
         }
 
         // card.onclick = function() {

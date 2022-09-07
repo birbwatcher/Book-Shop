@@ -17,7 +17,7 @@ export default function ddInit() {
     });
 
     dropArea.addEventListener(`drop`, (e) => {
-            addToCart(draggedItem)
+            addToCart(draggedItem);
     });
 }
 
