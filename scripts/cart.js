@@ -89,7 +89,7 @@ function bookMinus(bookId) {
                 cart.splice(i,1);
                 document.querySelectorAll('.card-item .bar .added-to-cart')[bookId].classList.remove('added-to-cart');
                 document.querySelectorAll('.card-item .bar .added')[bookId].classList.add('added-to-cart');
-
+                // document.querySelectorAll('.checkout-button-active').classList.add('added-to-cart');
             }
         }
     }

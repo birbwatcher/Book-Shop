@@ -9,9 +9,12 @@ export default function createSidebar() {
     let total = createElement("b", "total");
     let checkoutBtn = createElement("button","checkout-button");
     let checkoutBtnInact = createElement("button","checkout-button-inactive");
+    let checkoutBtnActive = createElement("button","checkout-button-active");
     checkoutBtn.classList.add("added-to-cart");
-    checkoutBtn.innerHTML = "Checkout";
-    checkoutBtnInact.innerHTML = "Checkout";
+    checkoutBtnActive.classList.add("added-to-cart");
+    checkoutBtn.innerHTML = "Go to Cart";
+    checkoutBtnInact.innerHTML = "Cart is empty";
+    checkoutBtnActive.innerHTML = "Checkout";
     sidebar.append(cart);
     yourCart.innerHTML = "Your cart:";
     total.innerHTML = "Total: $0"
@@ -20,11 +23,15 @@ export default function createSidebar() {
     cart.append(total);
     cart.append(checkoutBtn);
     cart.append(checkoutBtnInact);
+    // cart.append(checkoutBtnActive);
     wrapper.append(sidebar)
 
     checkoutBtn.onclick = function() {
-        console.log('order!');
-        document.querySelector('.cards-container').innerHTML = '';
+        document.querySelector('.cards-container').classList.add('added-to-cart');
+        checkoutBtn.classList.add('added-to-cart');
+        checkoutBtnActive.classList.remove('added-to-cart');
     }
+
+
 }
 
