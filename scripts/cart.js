@@ -1,10 +1,8 @@
-// let cart = {};
 let cart = [];
 import createElement from "./createElement.js";
 import {books} from "../script.js";
 
 export default function addToCart(bookData) {
-    // cart[bookData] = 1;
     let book = {};
     book[bookData] = 1;
     cart.push(book);

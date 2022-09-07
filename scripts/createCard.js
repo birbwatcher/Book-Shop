@@ -1,6 +1,5 @@
 import createElement from "./createElement.js";
-import {books} from "../script.js";
-import {cardContainer} from "../script.js";
+import {books, cardContainer} from "../script.js";
 import createPopUp from "./createPopUp.js";
 import getPopUp from "./getPopUp.js"
 import addToCart from "./cart.js";
@@ -50,5 +49,6 @@ export default function createCard(x) {
         // card.onclick = function() {
         //     console.log(this.id);
         // }
+
     }
 }
