@@ -1,13 +1,14 @@
 import addToCart from "./cart.js";
+import {alreadyInCart} from "./cart.js";
 
 export default function ddInit() {
     let dropArea = document.querySelector('.cart-container');
     let ddItems = document.querySelectorAll('.card-item');
-    let clicked;
+    let draggedItem;
     for (let i=0;i<ddItems.length;i++) {
         ddItems[i].draggable = true;
         ddItems[i].onmousedown = function() {
-           clicked = ddItems[i].id;
+            draggedItem = ddItems[i].id;
         }
     }
 
@@ -16,8 +17,12 @@ export default function ddInit() {
     });
 
     dropArea.addEventListener(`drop`, (e) => {
-        console.log(clicked)
-        addToCart(clicked)
+        console.log(alreadyInCart(draggedItem))
+        if(!alreadyInCart(draggedItem)) {
+            addToCart(draggedItem)
+        } else {
+            return;
+        };
     });
 }
 

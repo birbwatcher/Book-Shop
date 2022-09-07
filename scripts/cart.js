@@ -97,6 +97,11 @@ function getTotalPrice(){
     return sum;
 }
 
+export function alreadyInCart(bookId) {
+    if (cart.find(item => Object.keys(item).toString() === bookId)) {
+        return true;
+    } else return false;
+}
 
 
 export {cart};

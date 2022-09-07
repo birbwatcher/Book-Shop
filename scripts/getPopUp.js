@@ -1,6 +1,7 @@
 import {books} from "../script.js";
 import {cart} from "../scripts/cart.js";
 import addToCart from "./cart.js";
+import {alreadyInCart} from "./cart.js";
 
 export default function getPopUp(bookId) {
     document.querySelector('.blackout').classList.add('active');
@@ -26,20 +27,6 @@ export default function getPopUp(bookId) {
     document.querySelector('.book-author').innerHTML = books[bookId].author;
     document.querySelector('.book-title').innerHTML = books[bookId].title;
     document.querySelector('.bar button').setAttribute('data', bookId);
-   
-    function alreadyInCart(bookId) {
-        if (cart.find(item => Object.keys(item).toString() === bookId)) {
-            return true;
-        } else return false;
-    }
-
-    if (alreadyInCart(bookId)) {
-        document.querySelector('.popup-content .add-to-cart').classList.add('added-to-cart');
-        document.querySelector('.popup-content .added').classList.remove('added-to-cart');
-    }  else {
-        document.querySelector('.popup-content .add-to-cart').classList.remove('added-to-cart');
-        document.querySelector('.popup-content .added').classList.add('added-to-cart');
-    }
     
     document.querySelector('.add-to-cart').onclick = function (event) {
         addToCart(event.target.getAttribute('data'));
@@ -50,5 +37,12 @@ export default function getPopUp(bookId) {
         document.querySelectorAll('.card-item .added')[bookId].classList.remove('added-to-cart');
     }
 
+    if (alreadyInCart(bookId)) {
+        document.querySelector('.popup-content .add-to-cart').classList.add('added-to-cart');
+        document.querySelector('.popup-content .added').classList.remove('added-to-cart');
+    } else {
+        document.querySelector('.popup-content .add-to-cart').classList.remove('added-to-cart');
+        document.querySelector('.popup-content .added').classList.add('added-to-cart');
+    }
 
 }
