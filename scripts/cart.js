@@ -3,9 +3,13 @@ import createElement from "./createElement.js";
 import {books} from "../script.js";
 
 export default function addToCart(bookData) {
-    let book = {};
-    book[bookData] = 1;
-    cart.push(book);
+    if (!alreadyInCart(bookData)) {
+        let book = {};
+        book[bookData] = 1;
+        cart.push(book);
+    } else {
+        bookPlus(bookData);
+    }
     renderCart()
 }
 

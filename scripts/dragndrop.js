@@ -17,12 +17,7 @@ export default function ddInit() {
     });
 
     dropArea.addEventListener(`drop`, (e) => {
-        console.log(alreadyInCart(draggedItem))
-        if(!alreadyInCart(draggedItem)) {
             addToCart(draggedItem)
-        } else {
-            return;
-        };
     });
 }
 
