@@ -1,6 +1,7 @@
 import {wrapper} from "../script.js";
 import createElement from "./createElement.js";
 import createCartContainer from "./createCartContainer.js";
+import createCheckout from "./checkoutPage.js";
 
 export default function createSidebar() {
     let sidebar = document.createElement("aside");
@@ -30,6 +31,7 @@ export default function createSidebar() {
         document.querySelector('.cards-container').classList.add('added-to-cart');
         checkoutBtn.classList.add('added-to-cart');
         checkoutBtnActive.classList.remove('added-to-cart');
+        createCheckout();
     }
 
 
