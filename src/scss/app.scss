@@ -280,3 +280,24 @@ button:hover{
     display: flex;
 }
 
+.user-data {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    .name, .surname {
+        width: 50%;
+        label {
+            width: 100%;
+        }
+    }
+    .street {
+        width: 100%;
+        input {
+            width: 70%;
+        }
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+}
