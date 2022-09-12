@@ -289,6 +289,8 @@ button:hover{
         border: 1px solid;
         // border-color: red;
         border-radius: 5px;
+        margin-right: 25px;
+        height: 30px;
         &:focus {
             background-color: #faea68;
         }
@@ -308,13 +310,14 @@ button:hover{
     }
     .street {
         width: 100%;
-        input {
-            width: 70%;
-        }
+        // input {
+        //     width: 70%;
+        // }
     }
     div {
         display: flex;
         flex-direction: column;
+        width: 33%;
     }
 }
 
@@ -322,4 +325,5 @@ button:hover{
     input {
         margin-right: 15px;
     }
+    margin-bottom: 20px;
 }

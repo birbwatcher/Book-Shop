@@ -39,7 +39,7 @@ export default function createCheckout() {
     paymentType.append(createPayment("card", "Card", true));
     paymentType.append(createPayment("cash", "Cash"));
 
-    giftType.append(chooseGift("gift", "pack as a gift"))
+    giftType.append(chooseGift("pack-as-gift", "pack as a gift"))
     giftType.append(chooseGift("postcard", "add postcard"))
     giftType.append(chooseGift("discount", "provide 2% discount to the next time"))
     giftType.append(chooseGift("branded-pen", "branded pen or pencil"))
@@ -72,12 +72,46 @@ export default function createCheckout() {
         // return false;
         paymentTypeSelection();
     }
+
+
+    let checkboxes = document.querySelectorAll('.gift');
+
+    for (let i=0;i<checkboxes.length;i++) {
+        checkboxes[i].onclick = function () {
+            let checked = document.querySelectorAll('.gift:checked');
+            if (checked.length == 2) {
+                maximumGifts()
+            } else { 
+                moreGifts()
+            }
+        }
+    }
+
+    function maximumGifts() {
+        let checkboxes = document.querySelectorAll('.gift:not(:checked)');
+        checkboxes.forEach(item => item.disabled = true)
+    }
+
+    function moreGifts() {
+        let checkboxes = document.querySelectorAll('.gift:not(:checked)');
+        checkboxes.forEach(item => item.disabled = false)
+    }
+
+    // document.querySelectorAll('.gift:checked');
+
+
+
+    // document.querySelectorAll('.gift:not(:checked)')
 }
 
 function createInput(name, labelName, inputtype, required) {
     let block = createElement("div", name);
     let label = document.createElement("label");
     let input = document.createElement("input");
+
+    let reqLabel = createElement("span","required-field-label")
+    reqLabel.innerHTML = "";
+
     label.innerHTML = labelName;
     input.type = inputtype;
     input.name = name;
@@ -89,6 +123,7 @@ function createInput(name, labelName, inputtype, required) {
     
     block.append(label);
     block.append(input);
+    block.append(reqLabel);
     return block;
 }
 
@@ -114,6 +149,9 @@ function chooseGift(name, labelName) {
     let input = document.createElement("input");
     label.innerHTML = labelName;
     input.type = "checkbox";
+    input.value = labelName;
+    // input.disabled = true;
+    input.classList.add('gift');
     block.append(input);
     block.append(label);
     return block;
@@ -144,3 +182,6 @@ function getTomorrowDate() {
     let tomorrow = today.getFullYear() + "-" + 0 + (today.getMonth() + 1) + "-" + (today.getDate() + 1);
     return tomorrow;
 }
+
+
+

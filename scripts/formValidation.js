@@ -15,15 +15,19 @@ export default function checkForms() {
     // }
 
     reqForms.forEach(function(item) {
-        let reqLabel = createElement("span","required-field-label")
-        reqLabel.innerHTML = "*this field is mandatory";
+        // let reqLabel = createElement("span","required-field-label")
+        // reqLabel.innerHTML = "*this field is mandatory";
         if (item.value.length === 0) {
             item.classList.add('error');
-            item.after(reqLabel);
+            item.nextSibling.innerHTML = "This field is mandatory";
         } else { 
             item.classList.remove('error');
+            item.nextSibling.innerHTML = "";
         }
     })
 
 }
+
+
+
 
