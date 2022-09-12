@@ -1,5 +1,7 @@
 import createElement from "./createElement.js";
 
+let checkoutData = {};
+
 export default function createCheckout() {
     let checkoutContainer = createElement("div","checkout-container");
     let checkoutHeader = createElement("h1","checkout-header");
@@ -7,6 +9,7 @@ export default function createCheckout() {
     document.querySelector('main').append(checkoutContainer);
     checkoutContainer.append(checkoutHeader);
     let checkoutForm = createElement("form","checkout-form");
+    checkoutForm.id = "form";
     checkoutContainer.append(checkoutForm)
     let userData = createElement("div","user-data");
     let paymentType = createElement("div","payment-type");
@@ -29,11 +32,9 @@ export default function createCheckout() {
     userData.append(createInput("house-number","House Number:", "text"));
     userData.append(createInput("flat-number","Flat Number:", "text"));
     userData.append(createInput("delivery-date","Preferable Delivery Date:", "date"));
-    
-    // let cardPayment = createInput("by-card","By Card", "radio");
-    // let cashPayment = createInput("by-cash","By Cash", "radio")
-    // cardPayment.name = "payment";
-    // cashPayment.name = "payment";
+    document.getElementById('delivery-date').setAttribute("min", getTomorrowDate())
+    document.getElementById('delivery-date').setAttribute("value", getTomorrowDate())
+
     paymentType.append(createPayment("card", "Card"));
     paymentType.append(createPayment("cash", "Cash"));
 
@@ -41,6 +42,33 @@ export default function createCheckout() {
     giftType.append(chooseGift("postcard", "add postcard"))
     giftType.append(chooseGift("discount", "provide 2% discount to the next time"))
     giftType.append(chooseGift("branded-pen", "branded pen or pencil"))
+
+    let submitButton = createElement("button","submit-button");
+    submitButton.innerHTML = "Leave Order";
+    submitButton.type = "submit";
+    checkoutForm.append(submitButton);
+
+    submitButton.onclick = function(e) {
+        e.preventDefault();
+        let name = document.getElementById('name').value;
+        let surname = document.getElementById('surname').value;
+        let street = document.getElementById('street').value;
+        let houseNumber = document.getElementById('house-number').value;
+        let flatNumber = document.getElementById('flat-number').value;
+        let deliveryDate = document.getElementById('delivery-date').value;
+
+        checkoutData.name = name;
+        checkoutData.surname = surname;
+        checkoutData.street = street;
+        checkoutData.houseNumber = houseNumber;
+        checkoutData.flatNumber = flatNumber;
+        checkoutData.deliveryDate = deliveryDate;
+        checkoutData.payment = paymentTypeSelection();
+        console.log(checkoutData);
+
+        // return false;
+        paymentTypeSelection();
+    }
 }
 
 function createInput(name, labelName, inputtype) {
@@ -49,6 +77,8 @@ function createInput(name, labelName, inputtype) {
     let input = document.createElement("input");
     label.innerHTML = labelName;
     input.type = inputtype;
+    input.name = name;
+    input.id = name;
     block.append(label);
     block.append(input);
     return block;
@@ -61,6 +91,7 @@ function createPayment(name, labelName) {
     label.innerHTML = labelName;
     input.type = "radio";
     input.name = "Payment";
+    input.id = name;
     block.append(input);
     block.append(label);
     return block;
@@ -75,4 +106,30 @@ function chooseGift(name, labelName) {
     block.append(input);
     block.append(label);
     return block;
+}
+
+function paymentTypeSelection(){
+    let paymentType = document.querySelector('input[name="Payment"]:checked').id;
+    return paymentType;
+}
+
+function createDateInput(name, labelName)  {
+    let block = createElement("div", name);
+    let label = document.createElement("label");
+    let input = document.createElement("input");
+    label.innerHTML = labelName;
+    input.type = inputtype;
+    input.name = name;
+    input.id = name;
+    input.min = getTomorrowDate();
+    input.value = getTomorrowDate();
+    block.append(label);
+    block.append(input);
+    return block;
+}
+
+function getTomorrowDate() {
+    let today = new Date();
+    let tomorrow = today.getFullYear() + "-" + 0 + (today.getMonth() + 1) + "-" + (today.getDate() + 1);
+    return tomorrow;
 }
