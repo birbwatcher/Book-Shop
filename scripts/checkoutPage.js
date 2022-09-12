@@ -1,4 +1,5 @@
 import createElement from "./createElement.js";
+import checkForms from "./formValidation.js";
 
 let checkoutData = {};
 
@@ -26,10 +27,10 @@ export default function createCheckout() {
     giftType.append(giftHeader);
     checkoutForm.append(giftType);
 
-    userData.append(createInput("name","Name:", "text"));
-    userData.append(createInput("surname","Surname:", "text"));
-    userData.append(createInput("street","Your Street:", "text"));
-    userData.append(createInput("house-number","House Number:", "text"));
+    userData.append(createInput("name","Name:", "text", true));
+    userData.append(createInput("surname","Surname:", "text", true));
+    userData.append(createInput("street","Your Street:", "text", true));
+    userData.append(createInput("house-number","House Number:", "text", true));
     userData.append(createInput("flat-number","Flat Number:", "text"));
     userData.append(createInput("delivery-date","Preferable Delivery Date:", "date"));
     document.getElementById('delivery-date').setAttribute("min", getTomorrowDate())
@@ -57,6 +58,8 @@ export default function createCheckout() {
         let flatNumber = document.getElementById('flat-number').value;
         let deliveryDate = document.getElementById('delivery-date').value;
 
+        checkForms();
+
         checkoutData.name = name;
         checkoutData.surname = surname;
         checkoutData.street = street;
@@ -71,7 +74,7 @@ export default function createCheckout() {
     }
 }
 
-function createInput(name, labelName, inputtype) {
+function createInput(name, labelName, inputtype, required) {
     let block = createElement("div", name);
     let label = document.createElement("label");
     let input = document.createElement("input");
@@ -79,6 +82,11 @@ function createInput(name, labelName, inputtype) {
     input.type = inputtype;
     input.name = name;
     input.id = name;
+
+    if (required === true) {
+        input.classList.add('required');
+    }
+    
     block.append(label);
     block.append(input);
     return block;

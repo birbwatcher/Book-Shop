@@ -280,10 +280,22 @@ button:hover{
     display: flex;
 }
 
+
 .user-data {
     display: flex;
     flex-wrap: wrap;
     row-gap: 20px;
+    input {
+        border: 1px solid;
+        // border-color: red;
+        border-radius: 5px;
+        &:focus {
+            background-color: #faea68;
+        }
+        &.error {
+            background-color: rgba(250, 43, 43, 0.395);
+        }
+    }
     .name, .surname {
         width: 50%;
         label {
@@ -299,5 +311,11 @@ button:hover{
     div {
         display: flex;
         flex-direction: column;
+    }
+}
+
+.payment-type, .gift-type {
+    input {
+        margin-right: 15px;
     }
 }
