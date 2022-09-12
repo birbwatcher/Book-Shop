@@ -296,6 +296,10 @@ button:hover{
             background-color: rgba(250, 43, 43, 0.395);
         }
     }
+    .required-field-label {
+        font-size: 15px;
+        color: red;
+    }
     .name, .surname {
         width: 50%;
         label {

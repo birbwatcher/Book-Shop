@@ -36,7 +36,7 @@ export default function createCheckout() {
     document.getElementById('delivery-date').setAttribute("min", getTomorrowDate())
     document.getElementById('delivery-date').setAttribute("value", getTomorrowDate())
 
-    paymentType.append(createPayment("card", "Card"));
+    paymentType.append(createPayment("card", "Card", true));
     paymentType.append(createPayment("cash", "Cash"));
 
     giftType.append(chooseGift("gift", "pack as a gift"))
@@ -92,13 +92,16 @@ function createInput(name, labelName, inputtype, required) {
     return block;
 }
 
-function createPayment(name, labelName) {
+function createPayment(name, labelName, checked) {
     let block = createElement("div", name);
     let label = document.createElement("label");
     let input = document.createElement("input");
     label.innerHTML = labelName;
     input.type = "radio";
     input.name = "Payment";
+    if (checked) {
+        input.checked = true;
+    }
     input.id = name;
     block.append(input);
     block.append(label);
