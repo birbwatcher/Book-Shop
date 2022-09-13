@@ -4,6 +4,21 @@ $footcolor: black;
 $footfontcolor: white;
 $cart-backg-color: rgb(247, 247, 247);
 $btn-hover: rgb(251, 209, 131);
+$cart-book-delete-background:  red;
+$cart-book-delete-color: white;
+$rt-book-minus-color: white;
+$rt-book-background-color: grey;
+$card-contaner-b-color: grey;
+$fast-view-background: rgba(255, 255, 255, 0.674);
+$fast-view-color: black;
+$btn-background-color: orange;
+$added-button-background: rgb(206, 206, 206);
+$blackout-background:  black;
+$popup-background:  white;
+$input-focus:  #faea68;
+$input-error:  red;
+$input-valid:  green;
+$required-field-color:  red;
 
 body {
     font-family: 'Helvetica Neue',Helvetica,'Lucida Grande','Droid Sans',Tahoma,'Microsoft Sans Serif',sans-serif;
@@ -16,7 +31,6 @@ body {
 
 .wrapper {
     @extend .main-wrapper;
-    // background-color: $bgcolor;
     height: 100%;
     display: flex;
 }
@@ -124,8 +138,8 @@ aside {
                 .cart-book-delete {
                     width: 15px;
                     height: 15px;
-                    background-color: red;
-                    color: white;
+                    background-color: $cart-book-delete-background;
+                    color: $cart-book-delete-color;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -138,8 +152,8 @@ aside {
                     justify-content: center;
                     align-items: center;
                     cursor: pointer;
-                    color: white;
-                    background-color: grey;
+                    color: $rt-book-minus-color;
+                    background-color: $rt-book-background-color;
                 }
                     .cart-count-bar p{
                         margin: 0;
@@ -176,7 +190,7 @@ aside {
             }
         }
         b {
-            color: grey;
+            color: $card-contaner-b-color;
         }
         h3 {
             font-size: 16px;
@@ -187,8 +201,8 @@ aside {
             display: none;
             position: absolute;
             border-radius: 20px;
-            background-color: rgba(255, 255, 255, 0.674);
-            color: black;
+            background-color: $fast-view-background;
+            color: $fast-view-color;
             padding: 10px 20px;
             left: 50%;
             top: 50%;
@@ -232,7 +246,7 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 20px;
-    background-color: orange;
+    background-color: $btn-background-color;
     padding: 5px 10px;
 }
 button:hover{
@@ -244,9 +258,9 @@ button:hover{
 }
 
 .added, .added-popup, .checkout-button-inactive, .checkout-page-button-inactive {
-    background-color: rgb(206, 206, 206);
+    background-color: $added-button-background;
     &:hover {
-        background-color: rgb(206, 206, 206); 
+        background-color: $added-button-background;
     }
 }
 
@@ -257,7 +271,7 @@ button:hover{
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    background-color:$blackout-background;
     opacity: 0.5;
     z-index: 1;
 }
@@ -270,7 +284,7 @@ button:hover{
     left: 50%;
     border-radius: 10px;
     transform:translate(-50%, -50%);
-    background-color: white;
+    background-color: $popup-background;
     width: 640px;
     padding: 6px 0;
     z-index: 2;
@@ -301,23 +315,22 @@ button:hover{
     row-gap: 20px;
     input {
         border: 1px solid;
-        // border-color: red;
         border-radius: 5px;
         margin-right: 25px;
         height: 30px;
         &:focus {
-            background-color: #faea68;
+            background-color: $input-focus;
         }
         &.error {
-            border-color: red;
+            border-color: $input-error;
         }
         &.valid {
-            border-color: green
+            border-color: $input-valid;
         }
     }
     .required-field-label {
         font-size: 15px;
-        color: red;
+        color: $required-field-color;
     }
     .name, .surname {
         width: 50%;
@@ -327,9 +340,6 @@ button:hover{
     }
     .street {
         width: 100%;
-        // input {
-        //     width: 70%;
-        // }
     }
     div {
         display: flex;
