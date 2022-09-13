@@ -17,6 +17,7 @@ export default function addToCart(bookData) {
 
 function renderCart() {
     let cartContainer = document.querySelector('.cart-container');
+    cartContainer.classList.remove('centered');
     cartContainer.innerHTML = '';
         for (let i=0;i<cart.length;i++) {
             if (typeof cart[i] !== 'undefined') {

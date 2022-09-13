@@ -5,6 +5,7 @@ export default function createCartContainer() {
     let cartContainer = createElement("div","cart-container");
     let dragImage = createElement("img","drag-image");
     let title = createElement("b","empty-cart-title");
+    cartContainer.classList.add('centered');
     title.innerHTML = "Your cart is empty. Just drag and drop the book here";
     dragImage.src = "./assets/dragndrop.png";
     cartContainer.append(dragImage);
