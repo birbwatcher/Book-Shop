@@ -7,6 +7,32 @@ export default function checkForms() {
     let fieldStreet = document.getElementById('street');
     let fieldHouse = document.getElementById('house-number');
     let fieldFlatNumber = document.getElementById('flat-number');
+    let fieldDeliveryDate = document.getElementById('delivery-date');
+
+    fieldFlatNumber.onblur = function() {
+        // if (fieldFlatNumber.value.match(/[1-9]+0*(-?[1-9]+0*)*/) === null) {
+        //     fieldFlatNumber.classList.remove('valid');
+        //     fieldFlatNumber.classList.add('error');
+        //     fieldFlatNumber.nextSibling.innerHTML = "Positive numbers only";
+        // }
+        if (fieldFlatNumber.value === '') {
+            fieldFlatNumber.classList.add('valid');
+            fieldFlatNumber.nextSibling.innerHTML = ""
+        } else if (fieldFlatNumber.value.match(/[1-9]+0*(-?[1-9]+0*)*/)) {
+            if (fieldFlatNumber.value.match(/[1-9]+0*(-?[1-9]+0*)*/)[0] === fieldFlatNumber.value) {
+                fieldFlatNumber.classList.add('valid');
+                fieldFlatNumber.nextSibling.innerHTML = ""
+            } else {
+                fieldFlatNumber.classList.remove('valid');
+                fieldFlatNumber.classList.add('error');
+                fieldFlatNumber.nextSibling.innerHTML = "Positive numbers only";
+            }
+        } else {
+            fieldFlatNumber.classList.remove('valid');
+            fieldFlatNumber.classList.add('error');
+            fieldFlatNumber.nextSibling.innerHTML = "Positive numbers only";
+        }
+    }
 
     fieldName.onblur = function() {
         isFieldBlank(fieldName);
@@ -14,6 +40,8 @@ export default function checkForms() {
             fieldName.classList.add('valid');
         } else {
             fieldName.nextSibling.innerHTML = "Mandatory, the length not less than 4 symbols";
+            fieldName.classList.remove('valid');
+            fieldName.classList.add('error');
         }
         checkoutStatus()
     }
@@ -24,6 +52,8 @@ export default function checkForms() {
             fieldSurname.classList.add('valid');
         } else {
             fieldSurname.nextSibling.innerHTML = "Mandatory, the length not less than 5 symbols";
+            fieldSurname.classList.remove('valid');
+            fieldSurname.classList.add('error');
         }
         checkoutStatus()
     }
@@ -35,6 +65,7 @@ export default function checkForms() {
         } else {
             fieldStreet.nextSibling.innerHTML = "Mandatory, the length not less than 5 symbols";
             fieldStreet.classList.remove('valid');
+            fieldStreet.classList.add('error');
         }
         checkoutStatus()
     }
@@ -46,8 +77,22 @@ export default function checkForms() {
         } else {
             fieldHouse.nextSibling.innerHTML = "Only positive numbers allowed";
             fieldHouse.classList.remove('valid');
+            fieldHouse.classList.add('error');
         }
         checkoutStatus()
+    }
+
+    fieldDeliveryDate.onblur = function() {
+        if (fieldDeliveryDate.value === '') {
+            fieldDeliveryDate.nextSibling.innerHTML = "Please choose the date";
+            fieldDeliveryDate.classList.remove('valid');
+            fieldDeliveryDate.classList.add('error');
+        } else {
+            fieldDeliveryDate.classList.add('valid');
+            fieldDeliveryDate.classList.remove('error');
+            fieldDeliveryDate.nextSibling.innerHTML = "";
+        }
+        checkoutStatus();
     }
 
 }
@@ -64,13 +109,15 @@ function isFieldBlank(field) {
 }
 
 function checkoutStatus() {
-    console.log(cart.length);
     let allInputs = document.querySelectorAll('.required.valid');
-    if (allInputs.length === 4 && cart.length > 0) {
-        document.querySelector('.submit-button').classList.remove('added-to-cart')
+    let allErrors = document.querySelectorAll('.error');
+    if (allInputs.length === 4 && allErrors.length === 0) {
+        document.querySelector('.checkout-submit-button').classList.remove('added-to-cart')
+        document.querySelector('.checkout-page-button-inactive').classList.add('added-to-cart')
     }
-    if (allInputs.length < 4 || cart.length === 0) {
-        document.querySelector('.submit-button').classList.add('added-to-cart');
+    if (allInputs.length < 4 || allErrors.length > 0) {
+        document.querySelector('.checkout-submit-button').classList.add('added-to-cart');
+        document.querySelector('.checkout-page-button-inactive').classList.remove('added-to-cart')
 
     }
 }

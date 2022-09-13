@@ -24,7 +24,7 @@ export default function createSidebar() {
     cart.append(total);
     cart.append(checkoutBtn);
     cart.append(checkoutBtnInact);
-    // cart.append(checkoutBtnActive);
+
     wrapper.append(sidebar)
 
     checkoutBtn.onclick = function() {

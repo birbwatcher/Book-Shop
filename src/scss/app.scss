@@ -5,8 +5,6 @@ $footfontcolor: white;
 $cart-backg-color: rgb(247, 247, 247);
 $btn-hover: rgb(251, 209, 131);
 
-// split to files
-
 body {
     font-family: 'Helvetica Neue',Helvetica,'Lucida Grande','Droid Sans',Tahoma,'Microsoft Sans Serif',sans-serif;
 }
@@ -229,7 +227,7 @@ button:hover{
     display: none;
 }
 
-.added, .added-popup, .checkout-button-inactive {
+.added, .added-popup, .checkout-button-inactive, .checkout-page-button-inactive {
     background-color: rgb(206, 206, 206);
     &:hover {
         background-color: rgb(206, 206, 206); 
@@ -329,4 +327,8 @@ button:hover{
         margin-right: 15px;
     }
     margin-bottom: 20px;
+}
+
+.ordered-container {
+    height: calc(100vh - 150px);
 }
