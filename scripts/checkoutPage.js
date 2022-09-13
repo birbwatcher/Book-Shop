@@ -45,6 +45,7 @@ export default function createCheckout() {
     giftType.append(chooseGift("branded-pen", "branded pen or pencil"))
 
     let submitButton = createElement("button","submit-button");
+    submitButton.classList.add('added-to-cart')
     submitButton.innerHTML = "Leave Order";
     submitButton.type = "submit";
     checkoutForm.append(submitButton);
