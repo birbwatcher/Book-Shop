@@ -58,8 +58,6 @@ export default function createCheckout() {
         let flatNumber = document.getElementById('flat-number').value;
         let deliveryDate = document.getElementById('delivery-date').value;
 
-        checkForms();
-
         checkoutData.name = name;
         checkoutData.surname = surname;
         checkoutData.street = street;
@@ -72,7 +70,6 @@ export default function createCheckout() {
         // return false;
         paymentTypeSelection();
     }
-
 
     let checkboxes = document.querySelectorAll('.gift');
 
@@ -97,11 +94,7 @@ export default function createCheckout() {
         checkboxes.forEach(item => item.disabled = false)
     }
 
-    // document.querySelectorAll('.gift:checked');
-
-
-
-    // document.querySelectorAll('.gift:not(:checked)')
+    checkForms()
 }
 
 function createInput(name, labelName, inputtype, required) {
@@ -116,6 +109,10 @@ function createInput(name, labelName, inputtype, required) {
     input.type = inputtype;
     input.name = name;
     input.id = name;
+
+    if (inputtype === "text") {
+        input.classList.add("validate");
+    }
 
     if (required === true) {
         input.classList.add('required');
@@ -162,20 +159,20 @@ function paymentTypeSelection(){
     return paymentType;
 }
 
-function createDateInput(name, labelName)  {
-    let block = createElement("div", name);
-    let label = document.createElement("label");
-    let input = document.createElement("input");
-    label.innerHTML = labelName;
-    input.type = inputtype;
-    input.name = name;
-    input.id = name;
-    input.min = getTomorrowDate();
-    input.value = getTomorrowDate();
-    block.append(label);
-    block.append(input);
-    return block;
-}
+// function createDateInput(name, labelName)  {
+//     let block = createElement("div", name);
+//     let label = document.createElement("label");
+//     let input = document.createElement("input");
+//     label.innerHTML = labelName;
+//     input.type = inputtype;
+//     input.name = name;
+//     input.id = name;
+//     input.min = getTomorrowDate();
+//     input.value = getTomorrowDate();
+//     block.append(label);
+//     block.append(input);
+//     return block;
+// }
 
 function getTomorrowDate() {
     let today = new Date();

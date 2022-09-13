@@ -295,7 +295,10 @@ button:hover{
             background-color: #faea68;
         }
         &.error {
-            background-color: rgba(250, 43, 43, 0.395);
+            border-color: red;
+        }
+        &.valid {
+            border-color: green
         }
     }
     .required-field-label {
