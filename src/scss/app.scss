@@ -121,6 +121,16 @@ aside {
                     display: flex;
                     justify-content: space-evenly;
                 }
+                .cart-book-delete {
+                    width: 15px;
+                    height: 15px;
+                    background-color: red;
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                }
                 .cart-book-minus, .cart-book-plus {
                     width: 40px;
                     height: 15px;

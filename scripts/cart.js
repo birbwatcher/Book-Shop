@@ -56,14 +56,12 @@ function renderCart() {
     let minuses= document.querySelectorAll('.cart-book-minus');
     let bookDeletes = document.querySelectorAll('.cart-book-delete');
 
-    // for (let i=0;i<bookDeletes.length;i++) {
-    //     bookDeletes[i].onclick = function() {
-    //         bookDelete(event.target.getAttribute('data'))
-    //         document.querySelectorAll('.card-item .bar .added-to-cart')[bookId].classList.remove('added-to-cart');
-    //         document.querySelectorAll('.card-item .bar .added')[bookId].classList.add('added-to-cart');
-    //         renderCart();
-    //     }
-    // }
+    for (let i=0;i<bookDeletes.length;i++) {
+        bookDeletes[i].onclick = function() {
+            bookDelete(event.target.getAttribute('data'))
+            renderCart();
+        }
+    }
 
 
     for (let i=0;i<pluses.length;i++) {
@@ -104,6 +102,8 @@ function bookDelete(bookId){
     for (let i=0;i<cart.length;i++) {
         if (cart[i].hasOwnProperty(bookId)) {
             cart.splice(i,1);
+            document.querySelectorAll('.card-item .bar .added-to-cart')[bookId].classList.remove('added-to-cart');
+            document.querySelectorAll('.card-item .bar .added')[bookId].classList.add('added-to-cart');
         }
     }
 }
