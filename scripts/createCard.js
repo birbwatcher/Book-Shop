@@ -41,13 +41,6 @@ export default function createCard(x) {
 
         addToCartBtn.onclick = function (event) {
             addToCart(event.target.getAttribute('data'));
-            // addedButton.classList.remove('added-to-cart');
-            // addToCartBtn.classList.add('added-to-cart');
         }
-
-        // card.onclick = function() {
-        //     console.log(this.id);
-        // }
-
     }
 }

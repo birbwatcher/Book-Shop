@@ -83,8 +83,6 @@ export default function createCheckout() {
         checkoutData.flatNumber = flatNumber;
         checkoutData.deliveryDate = deliveryDate;
         checkoutData.payment = paymentTypeSelection();
-        console.log(checkoutData);
-        console.log(userGifts);
 
         document.querySelector('.cart').remove();
 
@@ -168,7 +166,6 @@ function chooseGift(name, labelName) {
     label.innerHTML = labelName;
     input.type = "checkbox";
     input.value = labelName;
-    // input.disabled = true;
     input.classList.add('gift');
     block.append(input);
     block.append(label);
@@ -209,7 +206,6 @@ function orderCreated() {
     orderContainer.append(orderSummary);
     orderHeader.innerHTML = "Thanks you for your order!";
     orderSummary.innerHTML = "Order Summary:";
-    console.log(cart);
 
     for (let i = 0; i<cart.length;i++) {
         let book = createElement("p","ordered-book");

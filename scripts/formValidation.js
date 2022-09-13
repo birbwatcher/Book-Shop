@@ -10,11 +10,6 @@ export default function checkForms() {
     let fieldDeliveryDate = document.getElementById('delivery-date');
 
     fieldFlatNumber.onblur = function() {
-        // if (fieldFlatNumber.value.match(/[1-9]+0*(-?[1-9]+0*)*/) === null) {
-        //     fieldFlatNumber.classList.remove('valid');
-        //     fieldFlatNumber.classList.add('error');
-        //     fieldFlatNumber.nextSibling.innerHTML = "Positive numbers only";
-        // }
         if (fieldFlatNumber.value === '') {
             fieldFlatNumber.classList.add('valid');
             fieldFlatNumber.nextSibling.innerHTML = ""
