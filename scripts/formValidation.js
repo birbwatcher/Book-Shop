@@ -82,7 +82,7 @@ export default function checkForms() {
 
     fieldDeliveryDate.onblur = function() {
         if (!checkDate()) {
-            fieldDeliveryDate.nextSibling.innerHTML = "Please choose the date";
+            fieldDeliveryDate.nextSibling.innerHTML = "Please choose the correct date";
             fieldDeliveryDate.classList.remove('valid');
             fieldDeliveryDate.classList.add('error');
         } else {
