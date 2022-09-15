@@ -1,5 +1,6 @@
 import createElement from "./createElement.js";
 import {cart} from "./cart.js";
+import {checkDate} from "./checkoutPage.js";
 
 export default function checkForms() {
     let fieldName = document.getElementById('name');
@@ -80,7 +81,7 @@ export default function checkForms() {
     }
 
     fieldDeliveryDate.onblur = function() {
-        if (fieldDeliveryDate.value === '') {
+        if (!checkDate()) {
             fieldDeliveryDate.nextSibling.innerHTML = "Please choose the date";
             fieldDeliveryDate.classList.remove('valid');
             fieldDeliveryDate.classList.add('error');

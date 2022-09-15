@@ -183,6 +183,15 @@ function getTomorrowDate() {
     return tomorrow;
 }
 
+export function checkDate() {
+    let userDate = document.getElementById('delivery-date').value;
+    let date = new Date(userDate).getTime();
+    let tomorrow = new Date(getTomorrowDate()).getTime();
+    return date >= tomorrow;
+}
+
+
+
 function orderCreated() {
     document.querySelector('.checkout-container').remove();
     let orderContainer = createElement("div","ordered-container");
