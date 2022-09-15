@@ -16,6 +16,7 @@ export default function checkForms() {
         } else if (fieldFlatNumber.value.match(/[1-9]+0*(-?[1-9]+0*)*/)) {
             if (fieldFlatNumber.value.match(/[1-9]+0*(-?[1-9]+0*)*/)[0] === fieldFlatNumber.value) {
                 fieldFlatNumber.classList.add('valid');
+                fieldFlatNumber.classList.remove('error');
                 fieldFlatNumber.nextSibling.innerHTML = ""
             } else {
                 fieldFlatNumber.classList.remove('valid');
@@ -27,6 +28,7 @@ export default function checkForms() {
             fieldFlatNumber.classList.add('error');
             fieldFlatNumber.nextSibling.innerHTML = "Positive numbers only";
         }
+        checkoutStatus();
     }
 
     fieldName.onblur = function() {
